@@ -1,0 +1,181 @@
+---
+// Module de prise de rendez-vous.
+// À gauche : contact direct (téléphone mis en avant, e-mail, adresse).
+// À droite : widget de réservation type Calendly, DÉMO non connectée
+//   (aucun e-mail/agenda réel n'est appelé, à brancher sur le vrai Calendly d'Anne
+//    ou un back-office lors de la mise en production).
+const { compact = false } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+<div class="rdv-grid">
+  <aside class="rdv-aside">
+    <div class="phone-cta">
+      <span class="lab">Le plus simple, appelez</span>
+      <a class="num" href="tel:+33660791448">06&nbsp;60&nbsp;79&nbsp;14&nbsp;48</a>
+      <p>Un premier échange, confidentiel et sans engagement, pour faire connaissance et cerner votre situation.</p>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-row">
+        <span class="ci" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" opacity="0"/><path d="M3 7l9 6 9-6"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
+        </span>
+        <div>
+          <span class="lab">E-mail</span><br>
+          <a href="mailto:anne.tison-malthe@avocat.fr">anne.tison-malthe@avocat.fr</a>
+        </div>
+      </div>
+      <div class="contact-row">
+        <span class="ci" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        </span>
+        <div>
+          <span class="lab">Cabinet</span><br>
+          <span class="val">63 boulevard Malesherbes, 75008 Paris</span>
+        </div>
+      </div>
+      <div class="contact-row">
+        <span class="ci" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        </span>
+        <div>
+          <span class="lab">Premier rendez-vous</span><br>
+          <span class="val">30 min · 150 € TTC</span><br>
+          <small style="color:var(--ink-faint)">au cabinet, en visio ou par téléphone</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="note-confidential">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6z"/></svg>
+      Échange couvert par le secret professionnel
+    </div>
+  </aside>
+
+  <div class="booking" id="booking">
+    <div class="booking-head">
+      <img class="avatar" src={`${base}images/anne-portrait.jpg`} alt="" aria-hidden="true" />
+      <div>
+        <div class="bh-name">Anne Tison-Malthé</div>
+        <div class="bh-meta">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          Premier échange · 30 min
+        </div>
+      </div>
+    </div>
+
+    <div class="booking-body" id="booking-step1">
+      <div class="bb-title">Choisissez un créneau</div>
+      <div class="bb-sub">Sélectionnez un jour, puis un horaire qui vous convient.</div>
+
+      <div class="daypills" id="daypills" role="group" aria-label="Choisir une date"></div>
+      <div class="slots" id="slots" role="group" aria-label="Choisir un horaire"></div>
+    </div>
+
+    <div class="booking-foot is-hidden" id="booking-foot">
+      <p class="booking-summary" id="booking-summary"></p>
+      <div class="booking-fields">
+        <div class="field"><label for="bk-name">Nom</label><input id="bk-name" type="text" autocomplete="name" placeholder="Votre nom" /></div>
+        <div class="field"><label for="bk-phone">Téléphone</label><input id="bk-phone" type="tel" autocomplete="tel" placeholder="06 …" /></div>
+        <div class="field full"><label for="bk-email">E-mail</label><input id="bk-email" type="email" autocomplete="email" placeholder="vous@exemple.fr" /></div>
+        <div class="field full"><label for="bk-msg">En quelques mots, votre situation (facultatif)</label><textarea id="bk-msg" rows="2" placeholder="Ex. : difficulté de trésorerie, assignation reçue, filiale d'un groupe allemand…"></textarea></div>
+      </div>
+      <button class="btn btn-primary" id="bk-confirm" style="width:100%;justify-content:center">Confirmer la demande de rendez-vous</button>
+    </div>
+
+    <div class="booking-body booking-success is-hidden" id="booking-success">
+      <div class="check" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <h3>Demande bien reçue</h3>
+      <p id="success-text"></p>
+      <p style="margin-top:10px">Pour un besoin urgent, vous pouvez aussi appeler le <a href="tel:+33660791448"><b>06&nbsp;60&nbsp;79&nbsp;14&nbsp;48</b></a>.</p>
+    </div>
+
+    <div class="booking-foot" style="border-top:0;background:transparent;padding-top:0">
+      <p class="demo-note">Module de démonstration, à connecter à l'agenda d'Anne avant la mise en ligne.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const daypillsEl = document.getElementById('daypills');
+    const slotsEl = document.getElementById('slots');
+    const footEl = document.getElementById('booking-foot');
+    const summaryEl = document.getElementById('booking-summary');
+    const successEl = document.getElementById('booking-success');
+    const step1El = document.getElementById('booking-step1');
+    const confirmBtn = document.getElementById('bk-confirm');
+    const successText = document.getElementById('success-text');
+    if (!daypillsEl) return;
+
+    const DOW = ['dim.', 'lun.', 'mar.', 'mer.', 'jeu.', 'ven.', 'sam.'];
+    const MON = ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'];
+    const SLOTS = ['09:30', '11:00', '14:00', '15:30', '17:00'];
+
+    // Construit les ~6 prochains jours ouvrés à partir d'aujourd'hui.
+    const days = [];
+    const d = new Date();
+    d.setDate(d.getDate() + 1);
+    while (days.length < 6) {
+      const wd = d.getDay();
+      if (wd !== 0 && wd !== 6) days.push(new Date(d));
+      d.setDate(d.getDate() + 1);
+    }
+
+    let selDay = null, selSlot = null;
+
+    function fmtLong(dt) {
+      return `${DOW[dt.getDay()]} ${dt.getDate()} ${MON[dt.getMonth()]}`;
+    }
+
+    days.forEach((dt, i) => {
+      const b = document.createElement('button');
+      b.className = 'daypill';
+      b.type = 'button';
+      b.setAttribute('aria-pressed', 'false');
+      b.innerHTML = `<span class="dow">${DOW[dt.getDay()]}</span><span class="dnum">${dt.getDate()}</span><span class="dmon">${MON[dt.getMonth()]}</span>`;
+      b.addEventListener('click', () => {
+        selDay = dt; selSlot = null;
+        daypillsEl.querySelectorAll('.daypill').forEach((x) => x.setAttribute('aria-pressed', 'false'));
+        b.setAttribute('aria-pressed', 'true');
+        renderSlots();
+        footEl.classList.add('is-hidden');
+      });
+      daypillsEl.appendChild(b);
+      if (i === 0) b.click();
+    });
+
+    function renderSlots() {
+      slotsEl.innerHTML = '';
+      SLOTS.forEach((t) => {
+        const s = document.createElement('button');
+        s.className = 'slot';
+        s.type = 'button';
+        s.textContent = t;
+        s.setAttribute('aria-pressed', 'false');
+        s.addEventListener('click', () => {
+          selSlot = t;
+          slotsEl.querySelectorAll('.slot').forEach((x) => x.setAttribute('aria-pressed', 'false'));
+          s.setAttribute('aria-pressed', 'true');
+          summaryEl.innerHTML = `Rendez-vous souhaité&nbsp;: <b>${fmtLong(selDay)} à ${t}</b> · échange de 30 min.`;
+          footEl.classList.remove('is-hidden');
+          footEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+        slotsEl.appendChild(s);
+      });
+    }
+
+    confirmBtn?.addEventListener('click', () => {
+      const name = (document.getElementById('bk-name').value || '').trim();
+      if (!selDay || !selSlot) return;
+      step1El.classList.add('is-hidden');
+      footEl.classList.add('is-hidden');
+      successEl.classList.remove('is-hidden');
+      const who = name ? `${name}, votre` : 'Votre';
+      successText.innerHTML = `${who} demande pour le <b>${fmtLong(selDay)} à ${selSlot}</b> a été enregistrée. Anne vous confirmera ce créneau très rapidement par e-mail ou par téléphone.`;
+      successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  })();
+</script>

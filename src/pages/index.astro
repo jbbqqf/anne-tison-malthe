@@ -1,0 +1,217 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Rdv from '../components/Rdv.astro';
+
+const base = import.meta.env.BASE_URL;
+const expertises = [
+  {
+    num: '01',
+    title: 'Prévention des difficultés',
+    desc: "Anticiper, en toute confidentialité, avant la cessation des paiements, grâce au mandat ad hoc et à la conciliation, pour négocier avec vos créanciers sans dessaisissement.",
+    tags: ['Mandat ad hoc', 'Conciliation'],
+    href: `${base}expertises/#prevention`,
+  },
+  {
+    num: '02',
+    title: 'Procédures collectives',
+    desc: 'Sauvegarde, redressement ou liquidation, je vous guide à chaque étape devant le tribunal, du diagnostic au plan, jusqu’au rebond.',
+    tags: ['Sauvegarde', 'Redressement', 'Plan de cession'],
+    href: `${base}expertises/#procedures`,
+  },
+  {
+    num: '03',
+    title: 'Défense du dirigeant',
+    desc: "Assignation, comblement de passif, interdiction de gérer. Je défends le dirigeant et protège, autant que possible, son patrimoine.",
+    tags: ['Assignation', 'Comblement de passif', 'Patrimoine'],
+    href: `${base}expertises/#dirigeant`,
+  },
+  {
+    num: '04',
+    title: 'Conseil franco-allemand',
+    desc: "Accompagner les groupes et dirigeants germanophones dans leur langue, qu'ils soient filiales françaises de groupes allemands, créanciers ou repreneurs.",
+    tags: ['Deutsch', 'Cross-border', 'Distressed M&A'],
+    href: `${base}expertises/#franco-allemand`,
+  },
+];
+---
+<Layout>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Avocate au barreau de Paris · Restructuring</span>
+          <h1>Traverser la difficulté, <span class="accent">préparer le rebond.</span></h1>
+          <p class="lead">
+            J'accompagne les entreprises <strong>et leurs dirigeants</strong> en restructuring
+            et en procédures collectives, de la prévention discrète jusqu'au redressement.
+            Un conseil exigeant et humain, en français, en allemand et en anglais.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href={`${base}rendez-vous/`}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>
+              Prendre rendez-vous
+            </a>
+            <a class="btn btn-ghost" href="tel:+33660791448">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L20 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+              06 60 79 14 48
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-portrait">
+          <span class="frame" aria-hidden="true"></span>
+          <img src={`${base}images/anne-portrait.jpg`} width="400" height="400"
+               alt="Portrait de Maître Anne Tison-Malthé, avocate au barreau de Paris" />
+          <div class="hero-badge">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#A9743F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 16.5 7.1 18.2 8 12.7l-4-3.9 5.5-.8z"/></svg>
+            <div>
+              <strong>Trophée d'argent 2023</strong>
+              <span>Procédures collectives et Restructuring - Mid&nbsp;Cap</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRUST STRIP -->
+      <div class="trust-strip reveal">
+        <div class="item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6z"/></svg>
+          Membre de l'IFPPC
+        </div>
+        <div class="item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14a7 7 0 1 0 0-14 7 7 0 0 0 0 14z"/><path d="M8 13l-2 8 6-3 6 3-2-8"/></svg>
+          Avocate depuis 2012
+        </div>
+        <div class="item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg>
+          Conseil en français · allemand · anglais
+        </div>
+        <div class="item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          Cabinet à Paris 8
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILLARS : warmth + competence -->
+  <section class="band">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Pourquoi me confier votre dossier</span>
+        <h2>Une difficulté se traite tôt, à deux voix.</h2>
+        <p class="lead">L'entreprise a une situation à redresser, et le dirigeant, lui, a besoin d'être entendu, rassuré et défendu. Je m'occupe des deux.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar reveal">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          <h3>Agir avant qu'il ne soit tard</h3>
+          <p>Les outils de prévention comme le mandat ad hoc et la conciliation restent confidentiels et préservent votre marge de manœuvre. Plus on s'y prend tôt, plus les solutions sont nombreuses.</p>
+        </div>
+        <div class="pillar reveal">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 8V5l-3-2-5 3-5-3-3 2v3l3 2v9l5 3 5-3v-9z"/></svg></span>
+          <h3>Le dirigeant, pas seulement l'entreprise</h3>
+          <p>Assignation, responsabilité, patrimoine personnel. Derrière chaque procédure, il y a une personne. Je défends vos intérêts avec clarté et sans jargon inutile.</p>
+        </div>
+        <div class="pillar reveal">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg></span>
+          <h3>Un réflexe franco-allemand</h3>
+          <p>Formée entre la France et l'Allemagne, j'accompagne les groupes et dirigeants germanophones dans leur langue, à la croisée de deux cultures juridiques.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERTISES (cocon hub teaser) -->
+  <section>
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Domaines d'intervention</span>
+        <h2>Du premier signal de fragilité jusqu'au rebond.</h2>
+        <p class="lead">Quatre portes d'entrée vers un même objectif, préserver ce qui peut l'être et reconstruire le reste.</p>
+      </div>
+      <div class="expertise-grid">
+        {expertises.map((e) => (
+          <a class="expertise-card reveal" href={e.href}>
+            <span class="arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+            <span class="num">{e.num}</span>
+            <h3>{e.title}</h3>
+            <p>{e.desc}</p>
+            <span class="tags">{e.tags.map((t) => <span class="tag">{t}</span>)}</span>
+          </a>
+        ))}
+      </div>
+      <div style="margin-top:34px">
+        <a class="btn btn-ghost" href={`${base}expertises/`}>Voir tous les domaines d'intervention
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section class="band">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Ma façon de travailler</span>
+        <h2>Disponible, claire, à vos côtés.</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <h3>On se parle</h3>
+          <p>Un premier échange confidentiel, sans engagement, pour comprendre votre situation et vos priorités.</p>
+        </div>
+        <div class="step reveal">
+          <h3>On y voit clair</h3>
+          <p>Un diagnostic franc, en mots simples&nbsp;: les options ouvertes, les délais, les risques, les leviers.</p>
+        </div>
+        <div class="step reveal">
+          <h3>On décide ensemble</h3>
+          <p>Une stratégie définie avec vous, qu'il s'agisse de prévention amiable ou de procédure, et adaptée à votre réalité.</p>
+        </div>
+        <div class="step reveal">
+          <h3>On avance</h3>
+          <p>Je vous représente devant le tribunal et les mandataires, et reste joignable à chaque étape.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOICE / QUOTE + facts -->
+  <section class="band-ink">
+    <div class="container">
+      <div class="hero-grid" style="align-items:center">
+        <div class="reveal">
+          <span class="eyebrow">Ma conviction</span>
+          <blockquote class="pull" style="border-color:#D9B98E;color:#fff">
+            « Une entreprise en difficulté n'est pas qu'un dossier. C'est un projet, des salariés, un dirigeant. Mon rôle est de défendre tout cela, avec rigueur et avec humanité. »
+            <cite>Anne Tison-Malthé</cite>
+          </blockquote>
+        </div>
+        <div class="reveal">
+          <div class="facts">
+            <div class="fact"><div class="n">2012</div><div class="l">Avocate depuis</div></div>
+            <div class="fact"><div class="n">3</div><div class="l">Langues de travail</div></div>
+            <div class="fact"><div class="n">IFPPC</div><div class="l">Praticienne membre</div></div>
+            <div class="fact"><div class="n">Paris 8</div><div class="l">Bd Malesherbes</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / RDV -->
+  <section id="rendez-vous">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Premier échange</span>
+        <h2>Parlons de votre situation.</h2>
+        <p class="lead">Le plus tôt est toujours le mieux. Choisissez un créneau ou appelez directement. Premier rendez-vous de 30 minutes, sans engagement.</p>
+      </div>
+      <div class="reveal"><Rdv /></div>
+    </div>
+  </section>
+</Layout>

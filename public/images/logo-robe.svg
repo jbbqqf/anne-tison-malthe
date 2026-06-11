@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Robe d'avocat">
+  <rect width="64" height="64" rx="14" fill="#1D2A38"/>
+  <!-- Robe : deux pans crème séparés par l'ouverture centrale -->
+  <path d="M32 11 L17 18 L11 54 L29 54 L31 25 Z" fill="#FAF6EF"/>
+  <path d="M32 11 L47 18 L53 54 L35 54 L33 25 Z" fill="#FAF6EF"/>
+  <!-- Rabat blanc (les deux pattes au col) -->
+  <rect x="27.4" y="19" width="3.6" height="13" rx="1.1" fill="#FFFFFF"/>
+  <rect x="33" y="19" width="3.6" height="13" rx="1.1" fill="#FFFFFF"/>
+</svg>

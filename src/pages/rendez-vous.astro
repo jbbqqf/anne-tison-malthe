@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Rdv from '../components/Rdv.astro';
+---
+<Layout
+  title="Prendre rendez-vous et honoraires | Anne Tison-Malthé, avocate à Paris"
+  description="Premier rendez-vous de 30 minutes à 150 € TTC, au cabinet, en visio ou par téléphone. Avocate restructuring et procédures collectives, 63 boulevard Malesherbes, Paris 8. Réservez en ligne ou appelez le 06 60 79 14 48.">
+
+  <section class="hero" style="padding-bottom:clamp(28px,4vw,48px)">
+    <div class="container">
+      <div class="section-head reveal" style="max-width:720px">
+        <span class="eyebrow">Premier échange · confidentiel · sans engagement</span>
+        <h1>Réservons un <span style="font-style:italic;color:var(--accent-deep)">premier rendez-vous.</span></h1>
+        <p class="lead">Trente minutes pour faire connaissance, exposer votre situation et repartir avec une première lecture claire. Le plus tôt est toujours le mieux.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="container">
+      <div class="reveal"><Rdv /></div>
+    </div>
+  </section>
+
+  <!-- Honoraires -->
+  <section class="band">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Honoraires</span>
+        <h2>Une tarification claire, dès le départ.</h2>
+        <p class="lead">Pas de mauvaise surprise&nbsp;: le premier rendez-vous est à tarif fixe, et toute mission ultérieure fait l'objet d'une convention d'honoraires écrite.</p>
+      </div>
+
+      <div class="pillars">
+        <div class="pillar reveal" style="text-align:center">
+          <span class="ico" style="margin-inline:auto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+          <h3>Au cabinet</h3>
+          <p style="font-family:var(--serif);font-size:1.6rem;color:var(--accent-deep);margin:6px 0 2px">150 € TTC</p>
+          <p>30 minutes · 63 bd Malesherbes, Paris 8</p>
+        </div>
+        <div class="pillar reveal" style="text-align:center">
+          <span class="ico" style="margin-inline:auto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-3v10l-6-3z"/></svg></span>
+          <h3>En visioconférence</h3>
+          <p style="font-family:var(--serif);font-size:1.6rem;color:var(--accent-deep);margin:6px 0 2px">150 € TTC</p>
+          <p>30 minutes · où que vous soyez</p>
+        </div>
+        <div class="pillar reveal" style="text-align:center">
+          <span class="ico" style="margin-inline:auto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L20 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
+          <h3>Par téléphone</h3>
+          <p style="font-family:var(--serif);font-size:1.6rem;color:var(--accent-deep);margin:6px 0 2px">150 € TTC</p>
+          <p>30 minutes · simple et rapide</p>
+        </div>
+      </div>
+
+      <p class="reveal" style="text-align:center;color:var(--ink-faint);font-size:0.9rem;margin-top:26px">
+        « Ce premier rendez-vous de 30 min, sans engagement, permet réciproquement de faire connaissance. »<br>
+        Moyens de paiement&nbsp;: espèces, chèque, virement.
+      </p>
+    </div>
+  </section>
+
+  <!-- Acces -->
+  <section class="cta-band">
+    <div class="container container-narrow reveal">
+      <span class="eyebrow" style="justify-content:center">Accès</span>
+      <h2>63 boulevard Malesherbes, 75008 Paris</h2>
+      <p class="lead">Quartier Malesherbes et Monceau, Paris 8<sup>e</sup>. Pour toute urgence, un appel reste le plus direct.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="tel:+33660791448">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L20 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+          06 60 79 14 48
+        </a>
+        <a class="btn btn-ghost" href="mailto:anne.tison-malthe@avocat.fr">Écrire un e-mail</a>
+      </div>
+    </div>
+  </section>
+</Layout>

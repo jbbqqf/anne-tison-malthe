@@ -1,0 +1,214 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL;
+const anchors = [
+  { id: 'prevention', label: 'Prévention' },
+  { id: 'procedures', label: 'Procédures collectives' },
+  { id: 'dirigeant', label: 'Défense du dirigeant' },
+  { id: 'creancier', label: 'Côté créancier' },
+  { id: 'franco-allemand', label: 'Franco-allemand' },
+  { id: 'contentieux', label: 'Contentieux et actes' },
+];
+
+// FAQ : balisage FAQPage (matiere SEO, reponses sobres et exactes)
+const faq = [
+  {
+    q: 'Quelle est la différence entre mandat ad hoc et conciliation ?',
+    a: "Ce sont deux procédures de prévention amiables et confidentielles, sans dessaisissement du dirigeant. Le mandat ad hoc est très souple et purement contractuel. La conciliation, encadrée par des délais, peut aboutir à un accord constaté ou homologué par le tribunal, ce qui lui donne davantage de force.",
+  },
+  {
+    q: "Mon entreprise est en cessation des paiements, quel est le délai pour agir ?",
+    a: "L'état de cessation des paiements doit en principe être déclaré dans les 45 jours, sauf à demander dans ce délai l'ouverture d'une conciliation. Passé ce délai, le dirigeant s'expose à des sanctions, dont une éventuelle interdiction de gérer. D'où l'intérêt d'en parler tôt.",
+  },
+  {
+    q: "L'URSSAF m'assigne en redressement judiciaire, que faire ?",
+    a: "Ne restez pas seul face à l'audience. Selon votre situation, plusieurs voies existent, comme négocier un échéancier, contester la créance ou préparer la procédure la plus protectrice. L'essentiel est de réagir vite, avec un conseil à vos côtés.",
+  },
+  {
+    q: 'Le dépôt de bilan engage-t-il mon patrimoine personnel ?',
+    a: "Pas automatiquement. La responsabilité du dirigeant n'est engagée que dans certains cas (faute de gestion ayant contribué à l'insuffisance d'actif, par exemple). Une grande partie de mon travail consiste précisément à éviter ou à limiter cette mise en cause.",
+  },
+  {
+    q: 'Combien coûte un premier rendez-vous ?',
+    a: "Le premier échange dure 30 minutes et coûte 150 € TTC, au cabinet, en visioconférence ou par téléphone. Il permet, sans engagement, de faire connaissance et de cerner votre situation.",
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Layout
+  title="Expertises restructuring, procédures collectives et défense du dirigeant | Anne Tison-Malthé"
+  description="Prévention (mandat ad hoc, conciliation), sauvegarde, redressement et liquidation judiciaire, défense du dirigeant, conseil franco-allemand. Avocate à Paris 8.">
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <section class="hero" style="padding-bottom:clamp(28px,4vw,48px)">
+    <div class="container">
+      <div class="section-head reveal" style="max-width:740px">
+        <span class="eyebrow">Domaines d'intervention</span>
+        <h1>Une expertise, plusieurs <span style="font-style:italic;color:var(--accent-deep)">portes d'entrée.</span></h1>
+        <p class="lead">Selon votre situation et son degré d'urgence, l'accompagnement prend une forme différente. Voici les principaux chemins. Tous visent le même but, préserver ce qui peut l'être.</p>
+      </div>
+      <nav class="langs reveal" aria-label="Accès rapide aux expertises">
+        {anchors.map((a) => (
+          <a class="lang" href={`#${a.id}`} style="text-decoration:none;color:var(--ink)">{a.label}</a>
+        ))}
+      </nav>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- 1. Prévention -->
+    <section class="exp-block" id="prevention">
+      <div class="grid">
+        <div class="reveal">
+          <span class="num" style="font-family:var(--serif);color:var(--accent);font-size:1rem">01 · Prévention</span>
+          <h2>Anticiper, en toute confidentialité</h2>
+          <p class="lead" style="font-size:1.05rem">Avant la cessation des paiements, des outils discrets permettent de renégocier avec ses créanciers sans alerter le marché.</p>
+          <p class="note-confidential" style="margin-top:6px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6z"/></svg>
+            Procédures confidentielles, sans dessaisissement
+          </p>
+        </div>
+        <ul class="reveal">
+          <li><strong>Mandat ad hoc</strong>&nbsp;: négociation souple avec vos créanciers, sous l'égide d'un mandataire, dans la plus grande discrétion.</li>
+          <li><strong>Conciliation</strong>&nbsp;: recherche d'un accord homologable avec vos principaux partenaires, dans un cadre encadré.</li>
+          <li><strong>Diagnostic et restructuration de la dette</strong>&nbsp;: étalement, abandons, rééchelonnement, protocoles d'accord.</li>
+          <li><strong>Sécurisation du dirigeant</strong>&nbsp;: anticiper les risques avant qu'une procédure ne s'impose.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 2. Procédures collectives -->
+    <section class="exp-block" id="procedures">
+      <div class="grid">
+        <div class="reveal">
+          <span class="num" style="font-family:var(--serif);color:var(--accent);font-size:1rem">02 · Procédures collectives</span>
+          <h2>Vous guider devant le tribunal</h2>
+          <p class="lead" style="font-size:1.05rem">Quand la difficulté est avérée, chaque procédure a sa logique. Je vous aide à choisir la bonne et à la mener jusqu'au bout.</p>
+        </div>
+        <ul class="reveal">
+          <li><strong>Sauvegarde</strong>&nbsp;: pour l'entreprise qui n'est pas encore en cessation des paiements, afin de geler le passif et de bâtir un plan.</li>
+          <li><strong>Redressement judiciaire</strong>&nbsp;: période d'observation, plan de continuation ou de cession.</li>
+          <li><strong>Liquidation judiciaire</strong>&nbsp;: accompagnement, réalisation des actifs, défense des intérêts du dirigeant.</li>
+          <li><strong>Plan de cession</strong>&nbsp;: préparer, présenter ou répondre à une offre de reprise.</li>
+          <li><strong>Relations avec les mandataires de justice</strong>&nbsp;: administrateur, mandataire judiciaire, juge-commissaire.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3. Défense du dirigeant -->
+    <section class="exp-block" id="dirigeant">
+      <div class="grid">
+        <div class="reveal">
+          <span class="num" style="font-family:var(--serif);color:var(--accent);font-size:1rem">03 · Défense du dirigeant</span>
+          <h2>Derrière l'entreprise, une personne</h2>
+          <p class="lead" style="font-size:1.05rem">Une procédure peut viser le dirigeant lui-même. Mon rôle est de le défendre et de préserver, autant que la loi le permet, son patrimoine et son avenir.</p>
+        </div>
+        <ul class="reveal">
+          <li><strong>Assignation en redressement ou liquidation</strong>&nbsp;: préparer l'audience, contester, négocier.</li>
+          <li><strong>Action en comblement de passif / insuffisance d'actif</strong>&nbsp;: défense sur la faute de gestion alléguée.</li>
+          <li><strong>Interdiction de gérer et faillite personnelle</strong>&nbsp;: contester les sanctions encourues.</li>
+          <li><strong>Protection du patrimoine personnel</strong>&nbsp;: anticiper et limiter l'exposition du dirigeant.</li>
+          <li><strong>Responsabilité et cautions</strong>&nbsp;: analyse des engagements et des marges de manœuvre.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 4. Côté créancier -->
+    <section class="exp-block" id="creancier">
+      <div class="grid">
+        <div class="reveal">
+          <span class="num" style="font-family:var(--serif);color:var(--accent);font-size:1rem">04 · Côté créancier et repreneur</span>
+          <h2>Défendre vos intérêts dans la procédure d'un tiers</h2>
+          <p class="lead" style="font-size:1.05rem">Vous êtes créancier, partenaire ou candidat à la reprise d'une entreprise en difficulté&nbsp;? Vos droits se défendent, dans les délais.</p>
+        </div>
+        <ul class="reveal">
+          <li><strong>Déclaration de créance</strong>&nbsp;: sécuriser votre admission au passif dans les délais.</li>
+          <li><strong>Contestation de créance</strong>&nbsp;: défense de votre position devant le juge-commissaire.</li>
+          <li><strong>Reprise à la barre du tribunal</strong>&nbsp;: montage et présentation d'une offre de reprise.</li>
+          <li><strong>Distressed M&amp;A</strong>&nbsp;: acquisition d'actifs ou d'activités en contexte de difficulté.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 5. Franco-allemand -->
+    <section class="exp-block" id="franco-allemand">
+      <div class="grid">
+        <div class="reveal">
+          <span class="num" style="font-family:var(--serif);color:var(--accent);font-size:1rem">05 · Conseil franco-allemand</span>
+          <h2>Deutschsprachige Begleitung in Frankreich</h2>
+          <p class="lead" style="font-size:1.05rem">Filiale française d'un groupe allemand en difficulté, créancier ou repreneur germanophone&nbsp;: je vous accompagne dans votre langue, à la croisée des deux droits.</p>
+          <div class="langs" style="margin-top:14px">
+            <span class="lang"><span class="flag">🇫🇷</span> Français</span>
+            <span class="lang"><span class="flag">🇩🇪</span> Deutsch</span>
+            <span class="lang"><span class="flag">🇬🇧</span> English</span>
+          </div>
+        </div>
+        <ul class="reveal">
+          <li><strong>Filiales françaises de groupes allemands</strong>&nbsp;: prévention et restructuring coordonnés.</li>
+          <li><strong>Créanciers et investisseurs germanophones</strong>&nbsp;: défense dans une procédure française.</li>
+          <li><strong>Interface culturelle et linguistique</strong>&nbsp;: traduire non seulement les mots, mais les logiques juridiques.</li>
+          <li><strong>Contrats et contentieux internationaux</strong>&nbsp;: dimension européenne et transfrontalière.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6. Contentieux et actes -->
+    <section class="exp-block" id="contentieux">
+      <div class="grid">
+        <div class="reveal">
+          <span class="num" style="font-family:var(--serif);color:var(--accent);font-size:1rem">06 · Contentieux des affaires et actes</span>
+          <h2>Le quotidien juridique de l'entreprise</h2>
+          <p class="lead" style="font-size:1.05rem">Au-delà de la difficulté, j'accompagne la vie des affaires&nbsp;: litiges commerciaux, droit des sociétés et rédaction d'actes.</p>
+        </div>
+        <ul class="reveal">
+          <li><strong>Contentieux commercial</strong>&nbsp;: litiges entre entreprises, rupture de relations, inexécution de contrats.</li>
+          <li><strong>Droit des sociétés</strong>&nbsp;: vie sociale, litiges entre associés, opérations courantes.</li>
+          <li><strong>Cession de fonds de commerce</strong>&nbsp;: rédaction d'actes, privilèges et nantissements, baux commerciaux.</li>
+          <li><strong>Rédaction d'actes en matière commerciale</strong>&nbsp;: sécuriser vos engagements.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <!-- FAQ -->
+  <section class="band">
+    <div class="container container-narrow">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Questions fréquentes</span>
+        <h2>Vos premières questions, mes réponses.</h2>
+      </div>
+      <div class="reveal">
+        {faq.map((f) => (
+          <details class="contact-card" style="margin-bottom:14px">
+            <summary style="cursor:pointer;font-weight:600;font-family:var(--serif);font-size:1.15rem;list-style:none;color:var(--ink)">{f.q}</summary>
+            <p style="margin:12px 0 0;color:var(--ink-soft)">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band">
+    <div class="container container-narrow reveal">
+      <span class="eyebrow" style="justify-content:center">Votre situation est unique</span>
+      <h2>Le meilleur diagnostic reste une conversation.</h2>
+      <p class="lead">Exposez-moi votre cas&nbsp;: je vous dirai franchement ce qui est possible.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href={`${base}rendez-vous/`}>Prendre rendez-vous</a>
+        <a class="btn btn-ghost" href="tel:+33660791448">06 60 79 14 48</a>
+      </div>
+    </div>
+  </section>
+</Layout>

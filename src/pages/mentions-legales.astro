@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Layout
+  title="Mentions légales | Anne Tison-Malthé, avocate"
+  description="Mentions légales et informations sur le traitement des données du cabinet d'Anne Tison-Malthé, avocate au barreau de Paris.">
+
+  <section class="hero" style="padding-bottom:0">
+    <div class="container container-narrow">
+      <span class="eyebrow">Informations légales</span>
+      <h1>Mentions légales</h1>
+    </div>
+  </section>
+
+  <section>
+    <div class="container container-narrow" style="color:var(--ink-soft)">
+      <!-- NB : à compléter / valider avec Anne avant mise en production
+           (n° RPVA, RCS éventuel, assureur RCP, hébergeur définitif, dénomination FWD Legal). -->
+
+      <h3>Éditeur du site</h3>
+      <p>
+        <strong>Anne Tison-Malthé</strong>, avocate au barreau de Paris (toque B0505).<br>
+        Exercice individuel sous le nom commercial <strong>FWD Legal</strong>.<br>
+        63 boulevard Malesherbes, 75008 Paris.<br>
+        SIREN 539&nbsp;827&nbsp;071 · TVA intracommunautaire FR71539827071 · Code APE 6910Z.<br>
+        Téléphone&nbsp;: <a href="tel:+33660791448">06 60 79 14 48</a> · E-mail&nbsp;: <a href="mailto:anne.tison-malthe@avocat.fr">anne.tison-malthe@avocat.fr</a>
+      </p>
+
+      <h3>Profession réglementée</h3>
+      <p>
+        Avocate inscrite au barreau de Paris, soumise aux règles de la profession (loi n°&nbsp;71-1130 du 31&nbsp;décembre&nbsp;1971 et décret n°&nbsp;91-1197 du 27&nbsp;novembre&nbsp;1991) et au Règlement Intérieur National (RIN). Autorité de contrôle&nbsp;: Ordre des avocats de Paris. Le secret professionnel s'applique à l'ensemble des échanges.
+      </p>
+
+      <h3>Directrice de la publication</h3>
+      <p>Anne Tison-Malthé.</p>
+
+      <h3>Hébergement</h3>
+      <p>À compléter avant mise en production (nom et coordonnées de l'hébergeur).</p>
+
+      <h3 id="confidentialite">Données personnelles et confidentialité</h3>
+      <p>
+        Les informations transmises via le formulaire de prise de rendez-vous (nom, téléphone, e-mail, message)
+        sont utilisées uniquement pour répondre à votre demande de contact et organiser un éventuel rendez-vous.
+        Elles ne sont ni revendues ni cédées à des tiers. Conformément au RGPD, vous disposez d'un droit
+        d'accès, de rectification et de suppression de vos données&nbsp;: il s'exerce par e-mail à
+        <a href="mailto:anne.tison-malthe@avocat.fr">anne.tison-malthe@avocat.fr</a>.
+      </p>
+      <p style="font-size:0.9rem;color:var(--ink-faint)">
+        Note&nbsp;: le module de prise de rendez-vous présenté sur ce site est une démonstration. Il devra
+        être connecté à un outil d'agenda réel (et à une information RGPD complète) avant la mise en ligne.
+      </p>
+
+      <h3>Propriété intellectuelle</h3>
+      <p>L'ensemble des contenus de ce site (textes, identité visuelle) est protégé. Toute reproduction sans autorisation est interdite.</p>
+
+      <p style="margin-top:34px"><a class="btn btn-ghost" href={base}>Retour à l'accueil</a></p>
+    </div>
+  </section>
+</Layout>

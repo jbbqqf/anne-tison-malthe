@@ -1,0 +1,122 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL;
+const timeline = [
+  { yr: 'Depuis 2012', t: 'Prestation de serment', d: "Avocate inscrite au barreau, après le CAPA à l'ERAGE (Grand Est, Strasbourg)." },
+  { yr: 'Strasbourg', t: 'Mazars Société d’Avocats', d: "Plus de cinq ans en droit des procédures collectives, au cœur du tissu économique alsacien." },
+  { yr: 'Munich', t: 'Trois ans en Allemagne', d: "Pratique du droit des placements financiers, avec l'allemand comme langue de travail au quotidien." },
+  { yr: 'Depuis 2017', t: 'Barreau de Paris', d: "Transfert à Paris et renforcement de l'équipe restructuring de SOFFAL (Françoise Sitterlé)." },
+  { yr: 'Paris', t: 'Chemouny Associés', d: "Années consacrées au restructuring, au contentieux commercial et au droit des sociétés." },
+  { yr: '2025', t: 'FWD Legal', d: "Ouverture de mon cabinet au 63 boulevard Malesherbes. Un nouveau chapitre, à mon image." },
+];
+---
+<Layout
+  title="Le cabinet | Anne Tison-Malthé, avocate restructuring à Paris"
+  description="Parcours d'Anne Tison-Malthé : Mazars Strasbourg, Munich, SOFFAL, Chemouny Associés. Membre de l'IFPPC, ambassadrice d'Alsace, profil franco-allemand trilingue. Restructuring et procédures collectives à Paris.">
+
+  <section class="hero" style="padding-bottom:0">
+    <div class="container">
+      <div class="section-head reveal" style="max-width:720px">
+        <span class="eyebrow">Le cabinet</span>
+        <h1>Avocate de la difficulté <span style="font-style:italic;color:var(--accent-deep)">et du rebond.</span></h1>
+        <p class="lead">Depuis plus de dix ans, j'accompagne des entreprises et des dirigeants dans les moments où tout se joue. Un métier exigeant, que je pratique avec rigueur, franchise et un vrai souci de la personne.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:clamp(32px,5vw,56px)">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-portrait reveal">
+          <img src={`${base}images/anne-portrait.jpg`} width="400" height="400"
+               alt="Maître Anne Tison-Malthé, avocate au barreau de Paris" />
+          <p class="cap">Anne Tison-Malthé · Avocate au barreau de Paris (toque B0505)</p>
+          <div class="langs" style="margin-top:18px;justify-content:center">
+            <span class="lang"><span class="flag">🇫🇷</span> Français <small>natif</small></span>
+            <span class="lang"><span class="flag">🇩🇪</span> Allemand <small>natif</small></span>
+            <span class="lang"><span class="flag">🇬🇧</span> Anglais <small>courant</small></span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <h2>Un parcours entre deux cultures juridiques</h2>
+          <p>
+            J'ai grandi professionnellement en Alsace, à la frontière des droits français et allemand.
+            De mes années chez <strong>Mazars à Strasbourg</strong> à mes trois années à <strong>Munich</strong>,
+            j'ai appris à passer d'une langue et d'une logique juridique à l'autre, un réflexe devenu
+            ma signature.
+          </p>
+          <p>
+            À Paris, j'ai rejoint des équipes reconnues en restructuring,
+            <strong>SOFFAL</strong> puis <strong>Chemouny Associés</strong>, avant d'ouvrir
+            mon propre cabinet en 2025. Aujourd'hui, j'interviens principalement en
+            <strong>contentieux du droit des affaires, en droit des entreprises en difficulté / restructuring</strong>
+            et dans la rédaction d'actes en matière commerciale.
+          </p>
+          <p>
+            Ce qui me tient à cœur, c'est que le dirigeant que j'accompagne comprenne, à chaque étape,
+            où il en est et ce qui est possible. La technique est à mon service, et au vôtre, jamais l'inverse.
+          </p>
+
+          <div class="timeline" style="margin-top:28px">
+            {timeline.map((it) => (
+              <div class="tl-item">
+                <div class="yr">{it.yr}</div>
+                <h4>{it.t}</h4>
+                <p>{it.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Engagements -->
+  <section class="band">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Engagements et reconnaissance</span>
+        <h2>Une praticienne engagée dans sa communauté.</h2>
+      </div>
+      <div class="pillars">
+        <div class="pillar reveal">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          <h3>Membre de l'IFPPC</h3>
+          <p>Institut Français des Praticiens des Procédures Collectives, un gage de pratique régulière et reconnue des procédures collectives.</p>
+        </div>
+        <div class="pillar reveal">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 16.5 7.1 18.2 8 12.7l-4-3.9 5.5-.8z"/></svg></span>
+          <h3>Trophée d'argent 2023</h3>
+          <p>Distinguée au Sommet du Droit dans la catégorie « Procédures collectives et Restructuring - Mid Cap ».</p>
+        </div>
+        <div class="pillar reveal">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+          <h3>Ambassadrice d'Alsace</h3>
+          <p>Attachée à ma région d'origine et à son tissu d'entreprises, je revendique un ancrage alsacien et un esprit franco-allemand.</p>
+        </div>
+      </div>
+
+      <div class="reveal" style="margin-top:40px">
+        <blockquote class="pull">
+          « Ravie d'être présente aux Entretiens de la Sauvegarde organisés par l'IFPPC… les échanges s'annoncent passionnants. »
+          <cite>Anne Tison-Malthé, sur les rencontres de la profession</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band">
+    <div class="container container-narrow reveal">
+      <span class="eyebrow" style="justify-content:center">Faire connaissance</span>
+      <h2>Un premier échange, sans engagement.</h2>
+      <p class="lead">Trente minutes pour exposer votre situation et repartir avec une première lecture claire.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href={`${base}rendez-vous/`}>Prendre rendez-vous</a>
+        <a class="btn btn-ghost" href={`${base}expertises/`}>Découvrir mes expertises</a>
+      </div>
+    </div>
+  </section>
+</Layout>
