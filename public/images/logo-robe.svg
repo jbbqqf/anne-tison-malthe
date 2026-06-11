@@ -1,7 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Robe d'avocat au rabat">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="AT — Anne Tison-Malthé">
   <rect width="64" height="64" rx="18" fill="#1D2A38"/>
-  <path d="M10 16 L23 16 L27 20 L27 47 L22 47 L10 29 Z" fill="#FAF6EF"/>
-  <path d="M54 16 L41 16 L37 20 L37 47 L42 47 L54 29 Z" fill="#FAF6EF"/>
-  <path d="M28.2 19 L30.8 19 L30.4 45 L28.5 45 Z" fill="#FFFFFF"/>
-  <path d="M35.8 19 L33.2 19 L33.6 45 L35.5 45 Z" fill="#FFFFFF"/>
+  <path d="M8.5 50 L18.4 14 H29.2 L39.1 50 H30.3 L28.4 42.4 H19.2 L17.3 50 Z M20.8 35.2 H26.8 L23.8 23.2 Z" fill="#FFFFFF"/>
+  <path d="M37.5 14 H58.5 V21.9 H52.3 V50 H43.7 V21.9 H37.5 Z" fill="#FFFFFF"/>
 </svg>
